@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import { collection, getDocs,getFirestore } from "firebase/firestore";
 import ItemList from '../ItemList/ItemList';
+import { Link} from 'react-router-dom';
 
 const ItemListContainer = () => {
 
@@ -18,9 +19,16 @@ const ItemListContainer = () => {
     },[])
 
   return (
+    <>
+    <nav>
+      <Link to="/">Productos</Link>
+      <Link to="/cart">Carrito</Link>
+    </nav>
     <div className='itemListContainer'>
         {products.map(product => <ItemList key={product.id} product={product}/>)}
     </div>
+    </>
+
   )
 }
 
